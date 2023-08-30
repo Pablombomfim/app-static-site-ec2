@@ -35,7 +35,7 @@ resource "aws_route_table_association" "rt_public_To_sn_public" {
 }
 
 # SECURITY GROUP
-resource "aws_security_group" "sg_public" {
+resource "aws_security_group" "vpc_sg_pub" {
     name        = "sg_public"
     vpc_id      = aws_vpc.vpc.id
     
