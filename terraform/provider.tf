@@ -10,12 +10,28 @@ terraform {
     }
   }
 
+#DynaboDb
+module "dynamodb_table" {
+  source   = "terraform-aws-modules/dynamodb-table/aws"
 
-  backend "s3" {
-    bucket         = "tf-notifier-state-v1_do_pablinhos_gameplays"
-    key            = "terraform.tfstate"
-    dynamodb_table = "tf-notifier-state-v1_do_pablinhos-jogatinas"
-    region         = "us-east-1"
+  name     = "tf-notifier-state-v1_do_pablinhos-jogatinas"
+  hash_key = "LockID"
+
+  attributes = [
+    {
+      name = "LockID"
+      type = "N"
+    }
+  ]
+
+  tags = {
+    Terraform   = "true"
+    Environment = "staging"
+  }
 }
 
+#bucketS3
+resource "aws_s3_bucket" "tf-terraform-hello-world-state-pablinhos" {
+  bucket = "tf-notifier-state-v1_do_pablinhos_gameplays"
+}
 }
