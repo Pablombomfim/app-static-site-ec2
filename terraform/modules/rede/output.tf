@@ -1,4 +1,4 @@
-output "vpc_sn_public.id" {
+output "vpc_sn_public_id" {
     value = "${aws_subnet.sn_public.id}"
 }
 
