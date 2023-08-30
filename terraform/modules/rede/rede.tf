@@ -69,3 +69,31 @@ resource "aws_security_group" "sg_public" {
     }
 
 }
+
+#DynaboDb
+module "dynamodb_table" {
+  source   = "terraform-aws-modules/dynamodb-table/aws"
+
+  name     = "tf-notifier-state-v1_do_pablinhos-jogatinas"
+  hash_key = "LockID"
+
+  attributes = [
+    {
+      name = "LockID"
+      type = "N"
+    }
+  ]
+
+  tags = {
+    Terraform   = "true"
+    Environment = "staging"
+  }
+}
+
+#bucketS3
+resource "aws_s3_bucket" "tf-notifier-state-v1_do_pablinhos_gameplays" {
+  bucket = "tf-notifier-state-v1_do_pablinhos_gameplays"
+}
+
+
+
