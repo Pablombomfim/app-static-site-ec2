@@ -3,7 +3,7 @@ variable "vpc_cidr" {
     default = "10.0.0.0/16"
 }
 
-variable "key_name" {
+variable "name" {
     type    = string
     default = "Nossa EC2"
 }
