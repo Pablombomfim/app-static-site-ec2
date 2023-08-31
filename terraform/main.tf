@@ -7,8 +7,8 @@ module "rede" {
 module "compu" {
   source           = "./modules/compu"
   key_name         = "${var.key_name}"
-  vpc_sn_public_id = module.rede.vpc_sg_pub_id
-  vpc_sg_pub_id    = module.rede.vpc_sg_pub_id
+  vpc_sn_public_id = "${module.rede.vpc_sg_pub_id}"
+  vpc_sg_pub_id    = "${module.rede.vpc_sg_pub_id}"
 
 }
 
