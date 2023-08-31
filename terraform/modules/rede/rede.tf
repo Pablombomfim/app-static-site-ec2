@@ -36,7 +36,6 @@ resource "aws_route_table_association" "rt_public_To_sn_public" {
 
 # SECURITY GROUP
 resource "aws_security_group" "vpc_sg_pub" {
-  name   = "vpc_sg_pub"
   vpc_id = aws_vpc.vpc.id
 
   egress {

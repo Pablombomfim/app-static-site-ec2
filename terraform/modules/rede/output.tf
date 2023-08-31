@@ -3,6 +3,5 @@ output "vpc_sn_public_id" {
 }
 
 output "vpc_sg_pub_id" {
-    type = string
     value = "${aws_security_group.vpc_sg_pub.id}"
 }
