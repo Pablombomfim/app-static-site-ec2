@@ -1,6 +1,6 @@
 module "rede" {
   source   = "./modules/rede"
-  vpc_cidr = "${var.vpc_cidr}"
+  #vpc_cidr = "${var.vpc_cidr}"
 
 }
 

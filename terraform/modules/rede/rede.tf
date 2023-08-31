@@ -1,6 +1,6 @@
 # VPC
 resource "aws_vpc" "vpc" {
-  cidr_block           = "${var.vpc_cidr}"
+  cidr_block           = "10.0.0.0/16"
   enable_dns_hostnames = "true"
 }
 
@@ -12,7 +12,7 @@ resource "aws_internet_gateway" "igw" {
 # SUBNET
 resource "aws_subnet" "sn_public" {
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = "${var.vpc_cidr}"
+  cidr_block              = "10.0.1.0/24"
   map_public_ip_on_launch = "true"
   availability_zone       = "us-east-1a"
 
@@ -36,6 +36,7 @@ resource "aws_route_table_association" "rt_public_To_sn_public" {
 
 # SECURITY GROUP
 resource "aws_security_group" "vpc_sg_pub" {
+  name   = "vpc_sg_pub"
   vpc_id = aws_vpc.vpc.id
 
   egress {
@@ -68,6 +69,4 @@ resource "aws_security_group" "vpc_sg_pub" {
   }
 
 }
-
-#rapaz
 
