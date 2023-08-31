@@ -30,7 +30,7 @@ resource "aws_route_table" "rt_public" {
 
 # SUBNET ASSOCIATION
 resource "aws_route_table_association" "rt_public_To_sn_public" {
-  subnet_id      = aws_subnet.sn_public.id #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  subnet_id      = aws_subnet.sn_public.id
   route_table_id = aws_route_table.rt_public.id
 }
 
