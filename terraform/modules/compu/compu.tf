@@ -5,7 +5,7 @@ data "template_file" "user_data" {
     template = "${file("./scripts/user_data.sh")}"
 }
 
-resource "aws_instance" "instance" {
+resource "aws_instance" "intancia" {
     ami                    = "ami-02e136e904f3da870"
     instance_type          = "t2.micro"
     key_name               = "${var.key_name}"
