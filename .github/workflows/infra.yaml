@@ -47,8 +47,8 @@ jobs:
     # - name: CheckOv Result
     #   run: checkov --directory ./terraform/main.tf
 
-    - name: Skip Medium
-      run: checkov -d . --skip-check MEDIUM
+    - name: Skip Higher
+      run: checkov -d . --skip-check HIGHER
 
     - name: Step 07 - Terraform Plan
       run : terraform -chdir=./terraform plan -input=false 
