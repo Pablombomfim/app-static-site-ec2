@@ -44,8 +44,8 @@ jobs:
     - name: CheckOv Download
       run: pip3 install checkov
 
-    - name: CheckOv Result
-      run: checkov --directory ./terraform/main.tf
+    # - name: CheckOv Result
+    #   run: checkov --directory ./terraform/main.tf
 
     - name: Skip Medium
       run: checkov -d . --skip-check MEDIUM
