@@ -41,11 +41,14 @@ jobs:
     - name: Step 06 - Terraform Validate
       run : terraform -chdir=./terraform validate
 
-    # - name: CheckOv
-    #   run: pip3 install checkov
+    - name: CheckOv Download
+      run: pip3 install checkov
 
-    # - name: CheckOv
-    #   run: checkov --directory ./terraform
+    - name: CheckOv Result
+      run: checkov --directory ./terraform/main.tf
+
+    - name: Skip Medium
+      run: checkov -d . --skip-check MEDIUM
 
     - name: Step 07 - Terraform Plan
       run : terraform -chdir=./terraform plan -input=false 
