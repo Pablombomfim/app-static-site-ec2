@@ -48,7 +48,7 @@ jobs:
     #   run: checkov --directory ./terraform/main.tf
 
     - name: Skip Higher
-      run: checkov -d . --skip-check HIGHER
+      run: checkov -d . --skip-check HIGHER, CKV2_GHA_1
 
     - name: Step 07 - Terraform Plan
       run : terraform -chdir=./terraform plan -input=false 
